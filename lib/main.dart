@@ -1,14 +1,17 @@
 import 'package:retail_shop_ecommerce/shop_detail.dart';
+import 'package:retail_shop_ecommerce/models/location.dart';
+import 'package:retail_shop_ecommerce/mocks/mock_location.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  final Location mockLocation = MockLocation();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Retail Shop Demo',
+      title: 'Retail Shop Prototype',
       //theme: ThemeData(
         // This is the theme of your application.
         //
@@ -21,7 +24,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         //primarySwatch: Colors.deepPurpleAccent[400],
       //),
-      home: LocationDetail(),
+      home: LocationDetail(mockLocation),
     );
   }
 }

@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:retail_shop_ecommerce/models/location.dart';
 
 class LocationDetail extends StatelessWidget {
+  final Location location;
+  
+  // whatever value is passed as an argument to a constructor will automatically be assigned to the parameter 
+  LocationDetail(this.location);
+
   @override
   Widget build(BuildContext context) {
     Scaffold scaffold = Scaffold(
@@ -18,7 +24,7 @@ class LocationDetail extends StatelessWidget {
     return scaffold;
   }
 
-  Widget _section (String title) {
+  Widget _section(String title) {
     return Container(
             decoration: BoxDecoration(color: Colors.deepOrangeAccent[100]),
             child: Text(title),
