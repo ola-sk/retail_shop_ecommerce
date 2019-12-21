@@ -1,5 +1,3 @@
-// TODO analyse 'flutter/packages/flutter/lib/src/widgets/scroll_view.dart'
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:retail_shop_ecommerce/models/location.dart';
@@ -27,48 +25,25 @@ class LocationList extends StatelessWidget {
             return _shopListItem(this.locations[index]);
           },
         ),
-        // TODO Alignment for the Container doesn't seem to work while child is a ListView.builder()
         alignment: Alignment.center,
       ),
     );
     return scaffold;
   }
 
-/*   @override
-  Widget build(BuildContext context) {
-    Scaffold scaffold = Scaffold(
-        appBar: AppBar(
-            centerTitle: true,
-            title: Text("Shop Locations", style: Styles.navBarTitle),
-            elevation: 0.5),
-        // body: Center(child: |...| in case of ListView.builder adding a shrinkWrap centers the list vertically)
-        body: Center(
-          child: ListView.builder(
-              //shrinkWrap: true,
-              itemCount: this.locations.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  contentPadding: EdgeInsets.all(10.0),
-                  leading: _itemThumbnail(this.locations[index]),
-                  title: _itemTitle(this.locations[index]),
-                );
-              }),
-        ));
-    return scaffold;
-  } */
+
 
   Widget _itemThumbnail(Location location) {
     assert(location != null);
     return Container(
       width: 100,
       height: 100,
-//    if container already has the width property, then we dont need to create a new widget
-//    (we can delete these 3 commented lines)
-//      constraints: BoxConstraints.tightFor(width: 100.0),
+      // if the 'Container(...)' widget already has the width property, it's not necessary to set box constraints
+      // learn more: https://flutter.dev/docs/development/ui/layout/box-constraints
       child: ClipRRect(
-          borderRadius: BorderRadius.horizontal(left: Radius.circular(4)),
-          child: Image.network(location.url,
-              fit: BoxFit.cover)), //it was BoxFit.fitWidth
+        borderRadius: BorderRadius.horizontal(left: Radius.circular(4)),
+        child: Image.network(location.url, fit: BoxFit.cover),
+      ),
     );
   }
 
